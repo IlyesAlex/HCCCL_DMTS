@@ -1,0 +1,50 @@
+#Read in text file
+input_file in_practice = new input_file;
+in_practice.open("stimuliE_practice.txt"); #open a stimuli file
+
+#Create an empty two dimensional array
+array<string>stimlist_practice[0][0];
+loop until in_practice.end_of_file() begin #fill it, line by line
+	 string this_line = in_practice.get_line();
+	 array<string> temp[0];
+	 this_line.split("\t", temp ); #with tabulators as delimiters
+	 stimlist_practice.add( temp );
+end;
+
+#Practice
+#Instructions are presented
+instructions_trial.present();
+
+#The task starts
+loop int i = 1 until i > stimlist_practice.count() - 1 begin #we need minus two, because it counts from 1, and the first row is the column titles
+	 string target = stimlist_practice[i+1][1]; #we make variables by the columns. On each trial, we get one of the row from the .txt file (we need i+1, because the first row is the titles)
+	 string var1 = stimlist_practice[i+1][2];
+	 string var2 = stimlist_practice[i+1][3];
+	 string var3 = stimlist_practice[i+1][4];
+	 string var4 = stimlist_practice[i+1][5];
+	 
+    #Blank
+	 blank_trial.present();
+	 
+	 #Target appears
+    target_bitmap.set_filename(target); #we set the filenames to the ones int the .txt file
+	 target_bitmap.load();
+	 target_trial.present();
+	 
+	 #Mask
+    mask_trial.present();
+	  
+    #Variants appear as choices
+	 first_choice.set_filename(var1);
+	 first_choice.load();
+	 second_choice.set_filename(var2);
+	 second_choice.load();
+	 third_choice.set_filename(var3);
+	 third_choice.load();
+    fourth_choice.set_filename(var4);
+    fourth_choice.load();
+    choice_trial.present();
+    
+    #Iterating the trials
+    i = i+1;
+end;

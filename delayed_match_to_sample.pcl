@@ -1,0 +1,89 @@
+#Beginning the practice phase
+include "delayed_match_to_sample_practice.pcl";
+
+#Saving logfile in the "Logs" folder of the experiment
+string logpath=logfile_directory;
+string fn=logpath+"DMTS_"+logfile.subject()+".txt"; #fixed filnemae + the number of the subject
+bool fe0=file_exists(fn); 
+output_file ofile1=new output_file; #ofile1 is the output file 
+ofile1.open_append(fn); 
+if(!fe0) then #if the file exists, it writes the columns of the logged variables, with tabs as delimiters
+    ofile1.print("Trial\t");
+    ofile1.print("RT\t");
+    ofile1.print("Response\t");
+    ofile1.print("Correct\t");
+    ofile1.print("Correct_resp\n");
+end;
+
+#Read in text file
+input_file in = new input_file;
+in.open("stimuliE.txt"); #open a stimuli file
+
+#Create an empty two dimensional array
+array<string>stimlist[0][0];
+loop until in.end_of_file() begin #fill it, line by line
+	 string this_line = in.get_line();
+	 array<string> temp[0];
+	 this_line.split("\t", temp ); #with tabulators as delimiters
+	 stimlist.add( temp );
+end;
+
+#Experiment
+#Instructions are presented
+instructions_text.set_caption("Vége a gyakorlásnak!\n\n Ha készen áll a feladatra, nyomja meg bármelyik számot!");
+instructions_text.redraw();
+instructions_trial.present();
+
+#The task starts
+loop int i = 1 until i > stimlist.count() - 1 begin #we need minus one, because it counts from 1, and the first row is the column titles
+	 string target = stimlist[i+1][1]; #we make variables by the columns. On each trial, we get one of the row from the .txt file (we need i+1, because the first row is the titles)
+	 string var1 = stimlist[i+1][2];
+	 string var2 = stimlist[i+1][3];
+	 string var3 = stimlist[i+1][4];
+	 string var4 = stimlist[i+1][5];
+	 string correct = stimlist[i+1][6]; 
+	 int correct_int = int(correct); #we need an integer for the correct variant to be able to determine the correctness of the response
+	 
+    #Blank
+	 blank_trial.present();
+	 
+	 #Target appears
+    target_bitmap.set_filename(target); #we set the filenames to the ones int the .txt file
+	 target_bitmap.load();
+	 target_trial.present();
+	 
+	 #Mask
+    mask_trial.present();
+	  
+    #Variants appear as choices
+	 first_choice.set_filename(var1);
+	 first_choice.load();
+	 second_choice.set_filename(var2);
+	 second_choice.load();
+	 third_choice.set_filename(var3);
+	 third_choice.load();
+    fourth_choice.set_filename(var4);
+    fourth_choice.load();
+    choice_trial.present();
+    
+    #Response collection
+    stimulus_data last=stimulus_manager.last_stimulus_data(); #importing the last registred data
+    int RT = last.reaction_time();
+    int resp_button=last.button(); #the last registred button will be the logged response
+    int correct_resp; #correct response is an integer variable, which will be 0 or 1
+    if resp_button == correct_int then #if the response button and the correct column are the same, then the answer was right (=1), if not, the answer was wrong (=0)
+	     correct_resp = 1;
+    else
+	     correct_resp = 0;
+    end;
+    
+    #Logging - we print the values in the predefined columns with, tabulators between
+    ofile1.print(string(i) + "\t");
+    ofile1.print(string(RT) + "\t");
+    ofile1.print(string(resp_button) + "\t");
+    ofile1.print(correct + "\t");
+    ofile1.print(string(correct_resp) + "\n");
+    
+    #Iterating the trials
+    i = i+1; 
+end;
