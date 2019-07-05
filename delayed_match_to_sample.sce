@@ -22,8 +22,8 @@ A következőkben egy ábrát fog látni egy különös tárgyról.\n
 Kérjük, figyelje meg alaposan a tárgyat és jegyezze meg azt.\n
 Miután az ábra eltűnt, egy színes háttér felvillanása után\n újabb négy tárgyat fog látni, amelyből az egyik ugyanaz,\n mint amit korábban látott.\n
 Az 1, 2, 3, vagy 4 gomb lenyomásával jelezze,\n hogy hanyadik tárgyat látta korábban.\n
-A válaszadásra 5 másodpercig van lehetősége,\n utána újabb árbra fog megjelenni a képernyőn,\n ezért igyekezzen minél hamarabb válaszolni.\n\n
-Először egy gyakorló fázis következik, ahol kipróbálhatja a feladatot.\n\n
+A válaszadásra 5 másodpercig van lehetősége,\n utána újabb ábra fog megjelenni a képernyőn. \n Kérjük próbáljon minél gyorsabban és minél pontosabban válaszolni.\n\n
+Először egy gyakorló fázis következik, ahol kipróbálhatja a feladatot.\n\nItt még fog kapni visszajelzést a válaszairól, később már nem.\n\n
 Kérjük, nyomjon meg egy számot a továbblépéshez!";
 }instructions_text;
 
