@@ -84,6 +84,11 @@ loop int i = 1 until i > stimlist.count() - 1 begin #we need minus one, because 
     ofile1.print(correct + "\t");
     ofile1.print(string(correct_resp) + "\n");
     
+    #Break-time at the middle
+    if i == 50 then
+	     break_trial.present();
+    end;
+    
     #Iterating the trials
     i = i+1; 
 end;
