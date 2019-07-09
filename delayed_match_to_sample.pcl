@@ -43,7 +43,7 @@ end;
 
 #Experiment
 #Instructions are presented
-instructions_text.set_caption("Vége a gyakorlásnak!\n\n Ha készen áll a feladatra, nyomja meg bármelyik számot!");
+instructions_text.set_caption("Ez volt a gyakorlás.\n\n Ha készen áll a feladatra, nyomja meg bármelyik számot!");
 instructions_text.redraw();
 instructions_trial.present();
 
