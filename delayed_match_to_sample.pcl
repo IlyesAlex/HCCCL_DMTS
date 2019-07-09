@@ -12,12 +12,13 @@ if(!fe0) then #if the file exists, it writes the columns of the logged variables
     ofile1.print("RT\t");
     ofile1.print("Response\t");
     ofile1.print("Correct\t");
-    ofile1.print("Correct_resp\n");
+    ofile1.print("Correct_resp\t");
+    ofile1.print("Level_of_sim\n");
 end;
 
 #Read in text file
 input_file in = new input_file;
-in.open("stimuliE.txt"); #open a stimuli file
+in.open("stimuliF.txt"); #open a stimuli file
 
 #Create an empty two dimensional array
 array<string>stimlist[0][0];
@@ -28,9 +29,21 @@ loop until in.end_of_file() begin #fill it, line by line
 	 stimlist.add( temp );
 end;
 
+#Read in text file for level of similarity logging
+input_file in2 = new input_file;
+in2.open("stimuliF_indexes.txt");
+#this is a list of indexes - which indicate at which place is a spicifically different stimulus in a trial
+array<string>indexlist[0][0];
+loop until in2.end_of_file() begin
+	 string this_line2 = in2.get_line();
+	 array<string> temp2[0];
+	 this_line2.split("\t", temp2);
+	 indexlist.add( temp2 );
+end;
+
 #Experiment
 #Instructions are presented
-instructions_text.set_caption(“Ez volt a gyakorlás.\n\n Ha készen áll a feladatra, nyomja meg bármelyik számot!");
+instructions_text.set_caption("Vége a gyakorlásnak!\n\n Ha készen áll a feladatra, nyomja meg bármelyik számot!");
 instructions_text.redraw();
 instructions_trial.present();
 
@@ -70,19 +83,41 @@ loop int i = 1 until i > stimlist.count() - 1 begin #we need minus one, because 
     stimulus_data last=stimulus_manager.last_stimulus_data(); #importing the last registred data
     int RT = last.reaction_time();
     int resp_button=last.button(); #the last registred button will be the logged response
-    int correct_resp; #correct response is an integer variable, which will be 0 or 1
+    string correct_resp; #correct response is an integer variable, which will be 0 or 1
     if resp_button == correct_int then #if the response button and the correct column are the same, then the answer was right (=1), if not, the answer was wrong (=0)
-	     correct_resp = 1;
+	     correct_resp = "1";
+    elseif resp_button == 1 || resp_button == 2 || resp_button == 3 || resp_button == 4 then
+        correct_resp = "0"
     else
-	     correct_resp = 0;
+	     correct_resp = "NA";
     end;
+    
+    #Setting up a way to log the level of similarity
+    string los;
+    #If the answer was wrong, then it checks the answer, which is a number from 1 to 4, and compares it to the table of indexes.
+    if correct_resp == "0" then
+	     loop int rs = 1 until rs == 5 begin
+		     #when it finds the same value in the table of indexes as the buttonpress it prints the name of the column, which indicates the number of differences from the original
+		     if string(resp_button) == indexlist[i+1][rs] then
+			     los = indexlist[1][rs];
+			     rs = 5;
+		     else
+			     rs = rs+1;
+		     end;
+	     end;
+    elseif correct_resp == "NA" then
+	     los = "NA";
+	 else
+	     los = "0-diff";
+	 end;
     
     #Logging - we print the values in the predefined columns with, tabulators between
     ofile1.print(string(i) + "\t");
     ofile1.print(string(RT) + "\t");
     ofile1.print(string(resp_button) + "\t");
     ofile1.print(correct + "\t");
-    ofile1.print(string(correct_resp) + "\n");
+    ofile1.print(correct_resp + "\t");
+    ofile1.print(los + "\n");
     
     #Break-time at the middle
     if i == 50 then
