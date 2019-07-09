@@ -1,6 +1,6 @@
 #Read in text file
 input_file in_practice = new input_file;
-in_practice.open("stimuliE_practice.txt"); #open a stimuli file
+in_practice.open("stimuliF_practice.txt"); #open a stimuli file
 
 #Create an empty two dimensional array
 array<string>stimlist_practice[0][0];
