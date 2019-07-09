@@ -1,6 +1,0 @@
-# target	var1	var2	var3	var4
-Pictures\O.Fc1.3113.bmp	Pictures\O.Fc1.3113.bmp	Pictures\O.Fc1.1111.bmp	Pictures\O.Fc1.2333.bmp	Pictures\O.Fc1.1113.bmp
-Pictures\O.Fa4.3222.bmp	Pictures\O.Fa4.3212.bmp	Pictures\O.Fa4.3111.bmp	Pictures\O.Fa4.3112.bmp	Pictures\O.Fa4.3222.bmp
-Pictures\O.Fc3.1312.bmp	Pictures\O.Fc3.2333.bmp	Pictures\O.Fc3.1332.bmp	Pictures\O.Fc3.3311.bmp	Pictures\O.Fc3.1312.bmp
-Pictures\O.Fc3.2311.bmp	Pictures\O.Fc3.2311.bmp	Pictures\O.Fc3.3212.bmp	Pictures\O.Fc3.3321.bmp	Pictures\O.Fc3.2321.bmp
-Pictures\O.Fb3.1121.bmp	Pictures\O.Fb3.3121.bmp	Pictures\O.Fb3.3323.bmp	Pictures\O.Fb3.1231.bmp	Pictures\O.Fb3.1121.bmp
