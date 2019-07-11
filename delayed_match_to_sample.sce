@@ -47,6 +47,18 @@ picture{
     text {caption="3"; font_size = 50;}number_text3; x = 165; y = -320;
     text {caption="4"; font_size = 50;}number_text4; x = 495; y = -320;
 } choices_picture;
+#Feedback picture - with both the choices and the target present, for explanation
+picture{
+    bitmap target_bitmap; x = 0; y = 0;
+    bitmap first_choice; x = -495; y = -200; #first variant 
+    bitmap second_choice; x = -165; y = -200; #second variant
+    bitmap third_choice; x = 165; y = -200; #third variant
+    bitmap fourth_choice; x = 495; y = -200; #fourth variant
+    text number_text1; x = -495; y = -320;
+    text number_text2; x = -165; y = -320;
+    text number_text3; x = 165; y = -320;
+    text number_text4; x = 495; y = -320;
+} feedback_picture;
 
 #Mask and blank screen
 picture{background_color = 255,255,255;} blank_screen;
@@ -59,3 +71,4 @@ trial{trial_duration = 2000; trial_type = fixed; stimulus_event{picture target_p
 trial{trial_duration = 2000; trial_type = fixed; stimulus_event{picture mask_picture; time = 0;}mask_event;}mask_trial;
 trial{trial_duration = 5000; trial_type = fixed; stimulus_event{picture choices_picture; duration = 5000; target_button = 1;}choice_event;}choice_trial;
 trial{trial_duration = forever; trial_type = first_response; stimulus_event{picture{text{caption = "Most egy kis szünet következik!\n\n A szünet alatt pihentetheti a szemét és az ujjait.\n\n Ha készen áll a folytatára, nyomjon meg egy számot és folytatódik a feladat!";} break_text; x = 0; y = 0;}break_picture;}break_event;}break_trial;
+trial{trial_duration = forever; trial_type = first_response; stimulus_event{picture feedback_picture; time = 0;}feedback_event;}feedback_trial;
