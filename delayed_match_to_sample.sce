@@ -64,7 +64,7 @@ picture{
 picture{background_color = 255,255,255;} blank_screen;
 picture{bitmap {filename="mask.bmp";};x=0;y=0;} mask_picture;
 
-#Trials, which contain the screens as events + added a break trial, which will be presented at the middle (after 50 trials)
+#Trials, which contain the screens as events + added a break trial, which will be presented at the middle (after 50 trials) + added a times-up trial, to be able to explain the feedback better
 trial{trial_duration = forever; trial_type = first_response; stimulus_event{picture instructions_picture; time=0;}instructions_event;}instructions_trial;
 trial{trial_duration = 1000; trial_type = fixed; stimulus_event{picture blank_screen; time = 0;}blank_event;}blank_trial;
 trial{trial_duration = 2000; trial_type = fixed; stimulus_event{picture target_picture; time = 0;}target_event;}target_trial;
@@ -72,3 +72,4 @@ trial{trial_duration = 2000; trial_type = fixed; stimulus_event{picture mask_pic
 trial{trial_duration = 5000; trial_type = fixed; stimulus_event{picture choices_picture; duration = 5000; target_button = 1;}choice_event;}choice_trial;
 trial{trial_duration = forever; trial_type = first_response; stimulus_event{picture{text{caption = "Most egy kis szünet következik!\n\n A szünet alatt pihentetheti a szemét és az ujjait.\n\n Ha készen áll a folytatára, nyomjon meg egy számot és folytatódik a feladat!";} break_text; x = 0; y = 0;}break_picture;}break_event;}break_trial;
 trial{trial_duration = forever; trial_type = first_response; stimulus_event{picture feedback_picture; time = 0;}feedback_event;}feedback_trial;
+trial{trial_duration = 3000; trial_type = fixed; stimulus_event{picture{text{caption = "Sajnos lejárt az idő!";font_size = 30;}timesup_text;x = 0; y = 0;}timesup_picture;}timesup_event;}timesup_trial;
