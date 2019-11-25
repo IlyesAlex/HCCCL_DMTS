@@ -46,7 +46,12 @@ loop int i = 1 until i > stimlist_practice.count() - 1 begin #we need minus two,
     choice_trial.present();
     
     #Times-up text appears for the participant to know, that there is a feedback coming
-    timesup_trial.present();
+    int last=response_manager.response_count();
+    if last == 0 then
+	     timesup_trial.present();
+    else
+	     timesup2_trial.present();
+	 end;
     
     #Feedback trial appears after each practice trial
     feedback_trial.present();

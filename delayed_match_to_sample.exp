@@ -1,5 +1,5 @@
-<ver>20.3</ver>
-<efn>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample.exp</efn>
+<ver>21</ver>
+<efn>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample.exp</efn>
 <author>Ilyés Alex</author>
 <con>
 <pause>P</pause>
@@ -23,6 +23,7 @@
 <ddi>0</ddi>
 <dds>
 <icm_profile></icm_profile>
+<orient>0</orient>
 <use_icm>0</use_icm>
 </dds>
 <ddv>Primary Display Driver</ddv>
@@ -40,13 +41,13 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\Stimuli</dsd>
+<dsd>D:\Users\USER\Desktop\TérKépÉsz\DMTS\Stimuli</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample.sce</filename>
-<filename>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample.pcl</filename>
-<filename>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample_practice.pcl</filename>
+<filename>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample.sce</filename>
+<filename>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample.pcl</filename>
+<filename>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample_practice.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version>1.2</exp_version>
@@ -129,7 +130,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\logfiles</lfd>
+<lfd>D:\Users\USER\Desktop\TérKépÉsz\DMTS\logfiles</lfd>
 <lnb>2</lnb>
 <lno>1</lno>
 <log>
@@ -142,7 +143,7 @@
 <set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id>1</subject_id>
-<subject_id_pol>2</subject_id_pol>
+<subject_id_pol>1</subject_id_pol>
 <video_list>0</video_list>
 <warnings>1</warnings>
 </log>
@@ -163,7 +164,25 @@
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM4</piai>
+<pian>Serial Port</pian>
+<pihpn>COM4</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -215,7 +234,7 @@
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
+<name>HID Keyboard Device</name>
 </device>
 <device>
 <abs_axis>
@@ -257,22 +276,38 @@
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>Synaptics SMBus TouchPad</name>
+<name>HID-compliant mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>dynabook Hotkey Driver</name>
+<name>Fujitsu Mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>dynabook Hotkey Driver 1</name>
+<name>Fujitsu Mouse 1</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>dynabook Hotkey Driver 2</name>
+<name>USB Multimedia Keyboard</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Multimedia Keyboard 1</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Multimedia Keyboard 2</name>
+</device>
+<device>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<name>RB-740</name>
+<redp>32</redp>
 </device>
 <device>
 <axis>
@@ -306,8 +341,10 @@
 <engine_class></engine_class>
 <lang></lang>
 <mc>0</mc>
+<prerecord>0</prerecord>
 <rw>0</rw>
 <sil>200</sil>
+<srgs></srgs>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -589,13 +626,13 @@
 </sce>
 <sce>
 <idv>
-<device_type>3</device_type>
-<dx_device_type>19</dx_device_type>
-<ibn>1</ibn>
-<ibn>2</ibn>
-<ibn>3</ibn>
-<ibn>4</ibn>
-<idn>Billentyűzet</idn>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<ibn>Key 1 Press</ibn>
+<ibn>Key 3 Press</ibn>
+<ibn>Key 5 Press</ibn>
+<ibn>Key 7 Press</ibn>
+<idn>RB-740</idn>
 <index>0</index>
 <index>1</index>
 <index>2</index>
@@ -604,21 +641,21 @@
 <label></label>
 <label></label>
 <label></label>
+<offset>0</offset>
 <offset>2</offset>
-<offset>3</offset>
 <offset>4</offset>
-<offset>5</offset>
+<offset>6</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample.sce</sfn>
+<sfn>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample.sce</sfn>
 </sce>
 <sce>
 <overrides></overrides>
-<sfn>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample.pcl</sfn>
+<sfn>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample.pcl</sfn>
 </sce>
 <sce>
 <overrides></overrides>
-<sfn>C:\Users\Uer\Documents\mta\WP_tasks\delayed-match-to-sample\delayed_match_to_sample_practice.pcl</sfn>
+<sfn>D:\Users\USER\Desktop\TérKépÉsz\DMTS\delayed_match_to_sample_practice.pcl</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -629,6 +666,7 @@
 <freq></freq>
 <ignore_drops>1</ignore_drops>
 <max_drops>250</max_drops>
+<max_rec_dur>60</max_rec_dur>
 <name>None</name>
 <rec_vol>0</rec_vol>
 <show_drops>1</show_drops>
@@ -637,7 +675,6 @@
 <combine>0</combine>
 <ignore></ignore>
 <isr>0</isr>
-<max_rec_dur>10</max_rec_dur>
 <md></md>
 <mio></mio>
 <off_inter></off_inter>
